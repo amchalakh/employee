@@ -27,6 +27,7 @@ public class EmployeeService {
 	public List<Employee> getEmployees() {
 		List<Employee> empList = repo.findAll();
 		System.out.println("Employee List:"+empList.toString());
+		System.out.println("Employee Tested");
 		return empList;
 		
 	}
