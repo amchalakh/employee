@@ -3,6 +3,7 @@ package com.techno.employee.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.techno.employee.entity.Employee;
@@ -21,9 +22,12 @@ public class EmployeeService {
 		
 		return "Employee saved successfully";
 	}
-
+	
+	@Scheduled(cron="0 57 12 * * ?",zone="IST")
 	public List<Employee> getEmployees() {
-		return repo.findAll();
+		List<Employee> empList = repo.findAll();
+		System.out.println("Employee List:"+empList.toString());
+		return empList;
 		
 	}
 
